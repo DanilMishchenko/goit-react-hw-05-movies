@@ -21,11 +21,6 @@ export const List = styled.ul`
       margin-right: 0;
     }
 
-    img {
-      width: 100%;
-      min-height: 410px;
-    }
-
     div {
       padding-bottom: 16px;
       color: white;

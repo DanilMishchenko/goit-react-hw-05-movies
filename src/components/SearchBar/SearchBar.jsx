@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
+import {
+  Container,
+  SearchForm,
+  SearchButton,
+  SearchInput,
+} from './SearchBar.styled';
+
 export const SearchBar = ({ onSubmit }) => {
   const [search, setSearch] = useState('');
 
@@ -21,17 +28,18 @@ export const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <label htmlFor={searchInputId}></label>
-      <input
-        type="search"
-        name="search"
-        value={search}
-        id={searchInputId}
-        onChange={handleChange}
-        placeholder="Search movies"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <Container>
+      <SearchForm autoComplete="off" onSubmit={handleSubmit}>
+        <SearchInput
+          type="search"
+          name="search"
+          value={search}
+          id={searchInputId}
+          onChange={handleChange}
+          placeholder="Search movies"
+        />
+        <SearchButton type="submit">Search</SearchButton>
+      </SearchForm>
+    </Container>
   );
 };

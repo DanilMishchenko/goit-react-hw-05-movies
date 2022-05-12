@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.header`
   display: flex;
   align-items: center;
-  min-height: 60px;
+  min-height: 64px;
   margin-bottom: 16px;
   padding: 0 24px;
   border-radius: 0 0 10px 10px;
