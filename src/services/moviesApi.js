@@ -22,4 +22,10 @@ export const searchMoviesByQuery = async query => {
   return response.data;
 };
 
-// &language=en-US&page=1&include_adult=false
+export const getMovieActors = async movieId => {
+  const url = `/movie/${movieId}/credits?api_key=${API_KEY}`;
+  const responce = await axios.get(url);
+  return responce;
+};
+
+// movie/{movie_id}/credits?api_key=<<api_key>>

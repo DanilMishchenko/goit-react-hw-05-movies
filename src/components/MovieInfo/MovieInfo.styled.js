@@ -1,10 +1,11 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MovieContainer = styled.div`
   display: flex;
   padding: 40px;
   color: white;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   background: linear-gradient(
       90deg,
       rgba(25, 25, 45, 0.6),
@@ -19,7 +20,6 @@ export const ImgContainer = styled.div`
   min-width: 300px;
   margin-right: 40px;
   border-radius: 10px;
-  background-color: blue;
   overflow: hidden;
 `;
 
@@ -99,6 +99,11 @@ export const UserScoreChart = styled.div`
   border-radius: 50%;
   background: #1d80fb;
   color: white;
+  transition: 250ms;
+
+  :hover {
+    transform: scale(1.1);
+  }
 
   span {
     font-size: 18px;
@@ -124,4 +129,30 @@ export const OverviewContainer = styled.div`
 
 export const Overview = styled(Genres)`
   margin-bottom: 16px;
+`;
+
+export const AdditionalInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  border-radius: 0 0 8px 8px;
+  background: #1d80fb;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
+`;
+
+export const Link = styled(NavLink)`
+  color: #0804f3;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.06;
+
+  :not(:last-child) {
+    margin-right: 16px;
+  }
+
+  &.active {
+    color: white;
+    border-bottom: 2px solid white;
+  }
 `;

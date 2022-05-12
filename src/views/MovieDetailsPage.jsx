@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import * as moviesApi from 'services/moviesApi';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 
@@ -19,5 +19,10 @@ export const MovieDetailsPage = () => {
     selectedMovie();
   }, [movieId]);
 
-  return <>{movie && <MovieInfo movie={movie} />}</>;
+  return (
+    <>
+      {movie && <MovieInfo movie={movie} />}
+      <Outlet />
+    </>
+  );
 };
