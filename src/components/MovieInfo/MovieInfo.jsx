@@ -22,9 +22,7 @@ import {
 } from './MovieInfo.styled';
 
 export const MovieInfo = ({ movie }) => {
-  const backdrop = movie.backdrop_path
-    ? `${moviesApi.BASE_URL_IMG}${movie.backdrop_path}`
-    : 'Лох печальный';
+  const backdrop = `${moviesApi.BASE_URL_IMG}${movie.backdrop_path}`;
 
   return (
     <>

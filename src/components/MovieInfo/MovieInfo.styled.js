@@ -136,6 +136,7 @@ export const AdditionalInfo = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 40px;
+  margin-bottom: 16px;
   border-radius: 0 0 8px 8px;
   background: #1d80fb;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);

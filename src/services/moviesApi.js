@@ -25,7 +25,11 @@ export const searchMoviesByQuery = async query => {
 export const getMovieActors = async movieId => {
   const url = `/movie/${movieId}/credits?api_key=${API_KEY}`;
   const responce = await axios.get(url);
-  return responce;
+  return responce.data;
 };
 
-// movie/{movie_id}/credits?api_key=<<api_key>>
+export const getReviews = async movieId => {
+  const url = `/movie/${movieId}/reviews?api_key=${API_KEY}`;
+  const responce = await axios.get(url);
+  return responce.data.results;
+};
