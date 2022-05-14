@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { List } from './MoviesList.styled';
 
@@ -30,4 +31,8 @@ export const MoviesList = ({ movies }) => {
       })}
     </List>
   );
+};
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object.isRequired),
 };

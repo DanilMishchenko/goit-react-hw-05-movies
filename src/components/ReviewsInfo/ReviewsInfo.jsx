@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ReviewsContainer, Item, Messege } from './ReviewsInfo.styled';
 
 export const ReviewsInfo = ({ reviews }) => {
@@ -16,4 +17,8 @@ export const ReviewsInfo = ({ reviews }) => {
       </ul>
     </ReviewsContainer>
   );
+};
+
+ReviewsInfo.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.object.isRequired),
 };

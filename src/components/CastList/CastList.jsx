@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as moviesApi from 'services/moviesApi';
 import { CastContainer, List, Item } from './CastList.styled';
 
@@ -21,4 +22,8 @@ export const CastList = ({ cast }) => {
       </List>
     </CastContainer>
   );
+};
+
+CastList.propTypes = {
+  cast: PropTypes.arrayOf(PropTypes.object.isRequired),
 };

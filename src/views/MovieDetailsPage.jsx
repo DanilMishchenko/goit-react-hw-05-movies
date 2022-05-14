@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import * as moviesApi from 'services/moviesApi';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 
-export const MovieDetailsPage = () => {
+export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-
-  const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const selectedMovie = async () => {
@@ -22,14 +19,10 @@ export const MovieDetailsPage = () => {
     selectedMovie();
   }, [movieId]);
 
-  const handleClick = () => {
-    navigate(location?.state?.from ?? '/');
-  };
-
   return (
     <>
-      {movie && <MovieInfo movie={movie} onClick={handleClick} />}
+      {movie && <MovieInfo movie={movie} />}
       <Outlet />
     </>
   );
-};
+}

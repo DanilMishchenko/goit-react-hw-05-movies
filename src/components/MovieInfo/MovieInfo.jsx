@@ -1,6 +1,7 @@
-import { BackButton } from 'components/BackLink/BackButton';
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import * as moviesApi from 'services/moviesApi';
+import { BackButton } from 'components/BackLink/BackButton';
 
 import {
   MovieContainer,
@@ -23,14 +24,14 @@ import {
   AdditionalInfo,
 } from './MovieInfo.styled';
 
-export const MovieInfo = ({ movie, onClick }) => {
+export const MovieInfo = ({ movie }) => {
   const location = useLocation();
   const backdrop = `${moviesApi.BASE_URL_IMG}${movie.backdrop_path}`;
 
   return (
     <>
       <MovieContainer backdrop={backdrop}>
-        <BackButton onClick={onClick} />
+        <BackButton />
         <ImgContainer>
           <img
             src={`${moviesApi.BASE_URL_IMG}${movie.poster_path}`}
@@ -87,4 +88,8 @@ export const MovieInfo = ({ movie, onClick }) => {
       </AdditionalInfo>
     </>
   );
+};
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object.isRequired,
 };
