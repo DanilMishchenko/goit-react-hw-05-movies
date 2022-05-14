@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const MovieContainer = styled.div`
   display: flex;
-  padding: 40px;
+  position: relative;
+  padding: 72px 40px;
   color: white;
   border-radius: 8px 8px 0 0;
   background: linear-gradient(

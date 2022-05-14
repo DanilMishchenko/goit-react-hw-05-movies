@@ -1,3 +1,5 @@
+import { BackButton } from 'components/BackLink/BackButton';
+import { useLocation } from 'react-router-dom';
 import * as moviesApi from 'services/moviesApi';
 
 import {
@@ -21,12 +23,14 @@ import {
   AdditionalInfo,
 } from './MovieInfo.styled';
 
-export const MovieInfo = ({ movie }) => {
+export const MovieInfo = ({ movie, onClick }) => {
+  const location = useLocation();
   const backdrop = `${moviesApi.BASE_URL_IMG}${movie.backdrop_path}`;
 
   return (
     <>
       <MovieContainer backdrop={backdrop}>
+        <BackButton onClick={onClick} />
         <ImgContainer>
           <img
             src={`${moviesApi.BASE_URL_IMG}${movie.poster_path}`}
@@ -74,8 +78,12 @@ export const MovieInfo = ({ movie }) => {
         </div>
       </MovieContainer>
       <AdditionalInfo>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+        <Link to="cast" state={location.state}>
+          Cast
+        </Link>
+        <Link to="reviews" state={location.state}>
+          Reviews
+        </Link>
       </AdditionalInfo>
     </>
   );

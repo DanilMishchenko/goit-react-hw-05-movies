@@ -3,10 +3,12 @@ import { SearchBar } from 'components/SearchBar/SearchBar';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { searchMoviesByQuery } from 'services/moviesApi';
 import { PageHeading } from 'components/PageHeading/PageHeading';
+import { useSearchParams } from 'react-router-dom';
 
 export const MoviesPage = () => {
-  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
+  const query = searchParams.get('query');
 
   useEffect(() => {
     if (!query) return;
@@ -23,16 +25,13 @@ export const MoviesPage = () => {
   }, [query]);
 
   const handleSubmit = value => {
-    setQuery(value);
+    setSearchParams({ query: `${value}` });
   };
 
   return (
     <>
-      {movies.length === 0 ? (
-        <SearchBar onSubmit={handleSubmit} />
-      ) : (
-        <PageHeading>Search: {query}</PageHeading>
-      )}
+      <SearchBar onSubmit={handleSubmit} />
+      {movies.length !== 0 && <PageHeading>Search: {query}</PageHeading>}
       {movies.length !== 0 && <MoviesList movies={movies} />}
     </>
   );

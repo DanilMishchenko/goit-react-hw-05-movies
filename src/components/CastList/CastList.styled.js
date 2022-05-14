@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const CastContainer = styled.div`
-  display: flex;
   padding: 40px;
-  color: white;
+  margin-bottom: 16px;
   border: 3px solid #1d80fb;
   border-radius: 8px;
 `;
@@ -11,12 +10,10 @@ export const CastContainer = styled.div`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  color: white;
 `;
 
 export const Item = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: calc((100% - 200px) / 6);
   overflow: hidden;
   margin-right: 40px;

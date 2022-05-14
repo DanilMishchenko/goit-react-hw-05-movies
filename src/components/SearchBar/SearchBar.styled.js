@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 12px 24px;
+  margin-bottom: 16px;
 `;
 
 export const SearchForm = styled.form`
